@@ -1,0 +1,7 @@
+Engineering Standup – May 25
+
+- New sprint started today, ends on June 5.
+- Nikhil is assigned to fix the login bug by May 29.
+- Frontend team will refactor the dashboard components.
+- QA team reported performance issues on the reports page.
+- Riya will write the deployment scripts this week.
