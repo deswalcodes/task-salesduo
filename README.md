@@ -62,11 +62,9 @@ The server will start on `http://localhost:3000`
 
 ### POST `/process-meeting`
 
-Accepts either:
+Accepts:
 
-- `rawText` in JSON body, or  
-- `.txt` file via form-data
-
+- `rawText` in JSON body
 ---
 
 ## 🧾 JSON Request (Raw Text via curl)
@@ -81,14 +79,23 @@ curl -X POST http://localhost:3000/process-meeting \
 
 ---
 
+### POST `/process-meeting-file`
+
+Accepts :
+ 
+- `.txt` file via form-data
+  
+---
+
 ## 📁 File Upload Request (via curl)
 
 ```bash
-curl -X POST http://localhost:3000/process-meeting \
+curl -X POST http://localhost:3000/process-meeting-file \
   -F "file=@./sample/meeting1.txt"
 ```
 
 ---
+
 
 ## 🧪 Postman Instructions
 
@@ -105,7 +112,7 @@ curl -X POST http://localhost:3000/process-meeting \
    }
    ```
 
-For file upload, switch body type to **form-data** and add a key named `file` with `.txt` file attached.
+For file upload, change the endpoint from 'process-meeting' to 'process-meeting-file', switch body type to **form-data** and add a key named `file` with `.txt` file attached.
 
 ---
 
