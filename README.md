@@ -11,6 +11,7 @@ You can either:
 - Clone from GitHub:
   ```bash
   git clone https://github.com/deswalcodes/task-salesduo.git
+  cd task-salesduo
   
   
   ```
@@ -25,6 +26,7 @@ You can either:
 
 ```bash
 git clone https://github.com/deswalcodes/task-salesduo.git
+cd task-salesduo
 
 ```
 
