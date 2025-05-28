@@ -86,7 +86,7 @@ curl -X POST http://localhost:3000/process-meeting \
 
 ```bash
 curl -X POST http://localhost:3000/process-meeting \
-  -F "file=@./sample/sample1.txt"
+  -F "file=@./sample/meeting1.txt"
 ```
 
 ---
@@ -158,35 +158,38 @@ task-salesduo/
 
 You’ll find these in the `/sample` directory.
 
-### ✅ sample1.txt
+### ✅ meeting1.txt
 
 ```
-Marketing Team Meeting – May 20
+Marketing Sync – May 24
 
-- Social campaign launches June 1.
-- Ankit to prepare ad creatives by May 28.
-- Feedback from the last campaign was positive.
-- Need better engagement tracking.
+- We’ll launch the summer campaign on June 15.
+- Aditi to finalize ad creatives by June 10.
+- Rahul suggested testing the email sequence before launch.
+- Budget for the campaign is approved at $12,000.
+- Consider using influencers on Instagram and YouTube.
 ```
 
 ---
 
-### ✅ sample2.txt
+### ✅ meeting2.txt
 
 ```
-Sprint Review – May 25
+Engineering Standup – May 25
 
-- Project Beta will be released July 15.
-- Swati to fix remaining bugs by July 5.
-- Frontend team praised for the new UI.
-- Raj to lead the next demo with stakeholders.
+- New sprint started today, ends on June 5.
+- Nikhil is assigned to fix the login bug by May 29.
+- Frontend team will refactor the dashboard components.
+- QA team reported performance issues on the reports page.
+- Riya will write the deployment scripts this week.
+
 ```
 
 ---
 
 ## ⚠️ Error Handling
 
-- `400 Bad Request`: Missing input (no file or rawText)
+- `400 Bad Request`: Missing 'text' in request body
 - `500 Internal Server Error`: API failure or unexpected issues
 - Proper logging is implemented in the server console
 
