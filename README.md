@@ -42,7 +42,6 @@ Create a `.env` file in the root directory with the following contents:
 
 ```env
 ANTHROPIC_API_KEY=your_claude_api_key_here
-PORT=3000
 ```
 
 Replace `your_claude_api_key_here` with your actual Anthropic Claude API key.
