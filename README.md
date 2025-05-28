@@ -168,13 +168,13 @@ You’ll find these in the `/sample` directory.
 ### ✅ meeting1.txt
 
 ```
-Marketing Sync – May 24
+Team Sync – May 26
 
-- We’ll launch the summer campaign on June 15.
-- Aditi to finalize ad creatives by June 10.
-- Rahul suggested testing the email sequence before launch.
-- Budget for the campaign is approved at $12,000.
-- Consider using influencers on Instagram and YouTube.
+- We’ll launch the new product on June 10.
+- Ravi to prepare onboarding docs by June 5.
+- Priya will follow up with logistics team on packaging delay.
+- Beta users requested a mobile-first dashboard.
+
 ```
 
 ---
