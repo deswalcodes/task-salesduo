@@ -136,7 +136,7 @@ For file upload, switch body type to **form-data** and add a key named `file` wi
 ## 📂 Project Structure
 
 ```
-assignment_sales-duo/
+task-salesduo/
 ├── index.js               # Express server logic
 ├── api_call/
 │   ├── claude_client.js       # Claude API request logic
