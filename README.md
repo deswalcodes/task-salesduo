@@ -11,7 +11,7 @@ You can either:
 - Clone from GitHub:
   ```bash
   git clone https://github.com/deswalcodes/task-salesduo.git
-  cd assignment_sales-duo
+  
   
   ```
 
@@ -25,7 +25,7 @@ You can either:
 
 ```bash
 git clone https://github.com/deswalcodes/task-salesduo.git
-cd assignment_sales-duo
+
 ```
 
 ### 2. Install Dependencies
