@@ -1,4 +1,3 @@
-
 const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
@@ -15,30 +14,33 @@ app.use(express.urlencoded({ extended: true }));
 
 const upload = multer({ dest: "uploads/" });
 
-app.post("/process-meeting", async (req, res) => {
-  const text = req.body.rawText || req.body.text;
-  if (!text) return res.status(400).json({ error: "Missing 'text' in request body." });
+app.post("/process-meeting", upload.single("file"), async (req, res) => {
+  let text = null;
 
-  try {
-    const result = await extractMeetingData(text);
-    res.json(result);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  if (req.file) {
+    const filePath = req.file.path;
+    try {
+      text = fs.readFileSync(filePath, "utf8");
+    } catch (err) {
+      return res.status(500).json({ error: "Failed to read uploaded file." });
+    } finally {
+      fs.unlinkSync(filePath); 
+    }
   }
-});
 
-app.post("/process-meeting-file", upload.single("file"), async (req, res) => {
-  const filePath = req.file?.path;
-  if (!filePath) return res.status(400).json({ error: "No file uploaded." });
+  if (!text) {
+    text = req.body.rawText || req.body.text;
+  }
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' in body or no file uploaded." });
+  }
 
   try {
-    const text = fs.readFileSync(filePath, "utf8");
     const result = await extractMeetingData(text);
     res.json(result);
   } catch (err) {
     res.status(500).json({ error: err.message });
-  } finally {
-    fs.unlinkSync(filePath); 
   }
 });
 
