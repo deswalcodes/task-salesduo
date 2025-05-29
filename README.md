@@ -166,7 +166,7 @@ Team Sync – May 26
 
 - We’ll launch the new product on June 10.
 - Ravi to prepare onboarding docs by June 5.
-- Priya will follow up with logistics team on packaging delay.
+- Priya will follow up with logistics team on packaging delays.
 - Beta users requested a mobile-first dashboard.
 ```
 
