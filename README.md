@@ -12,8 +12,6 @@ You can either:
   ```bash
   git clone https://github.com/deswalcodes/task-salesduo.git
   cd task-salesduo
-  
-  
   ```
 
 - Or unzip the provided `.zip` file and navigate to the folder.
@@ -27,7 +25,6 @@ You can either:
 ```bash
 git clone https://github.com/deswalcodes/task-salesduo.git
 cd task-salesduo
-
 ```
 
 ### 2. Install Dependencies
@@ -62,9 +59,11 @@ The server will start on `http://localhost:3000`
 
 ### POST `/process-meeting`
 
-Accepts:
+Supports:
 
-- `rawText` in JSON body
+- `rawText` (or `text`) in JSON body  
+- `.txt` file uploaded via `multipart/form-data`
+
 ---
 
 ## 🧾 JSON Request (Raw Text via curl)
@@ -79,29 +78,22 @@ curl -X POST http://localhost:3000/process-meeting \
 
 ---
 
-### POST `/process-meeting-file`
-
-Accepts :
- 
-- `.txt` file via form-data
-  
----
-
 ## 📁 File Upload Request (via curl)
 
 ```bash
-curl -X POST http://localhost:3000/process-meeting-file \
+curl -X POST http://localhost:3000/process-meeting \
   -F "file=@./sample/meeting1.txt"
 ```
 
 ---
 
-
 ## 🧪 Postman Instructions
+
+### For Raw Text:
 
 1. **Method**: `POST`  
 2. **URL**: `http://localhost:3000/process-meeting`  
-3. **Headers** (for raw text):
+3. **Headers**:
    ```
    Content-Type: application/json
    ```
@@ -112,7 +104,10 @@ curl -X POST http://localhost:3000/process-meeting-file \
    }
    ```
 
-For file upload, change the endpoint from 'process-meeting' to 'process-meeting-file', switch body type to **form-data** and add a key named `file` with `.txt` file attached.
+### For File Upload:
+
+1. Change the body type to **form-data**  
+2. Add a key named `file` and attach a `.txt` file
 
 ---
 
@@ -148,13 +143,12 @@ For file upload, change the endpoint from 'process-meeting' to 'process-meeting-
 task-salesduo/
 ├── index.js               # Express server logic
 ├── api_call/
-│   ├── claude_client.js       # Claude API request logic
-│         
-├── uploads/                # Directory for temporary file uploads
+│   └── claude_client.js   # Claude API request logic     
+├── uploads/               # Directory for temporary file uploads
 ├── sample/
-│   ├── meeting1.txt         # Sample meeting note 1
-│   └── meeting2.txt         # Sample meeting note 2
-├── .env                    # Environment config (not committed)
+│   ├── meeting1.txt       # Sample meeting note 1
+│   └── meeting2.txt       # Sample meeting note 2
+├── .env                   # Environment config (not committed)
 ├── package.json
 └── README.md
 ```
@@ -172,9 +166,8 @@ Team Sync – May 26
 
 - We’ll launch the new product on June 10.
 - Ravi to prepare onboarding docs by June 5.
-- Priya will follow up with logistics team on packaging delays.
+- Priya will follow up with logistics team on packaging delay.
 - Beta users requested a mobile-first dashboard.
-
 ```
 
 ---
@@ -189,14 +182,13 @@ Engineering Standup – May 25
 - Frontend team will refactor the dashboard components.
 - QA team reported performance issues on the reports page.
 - Riya will write the deployment scripts this week.
-
 ```
 
 ---
 
 ## ⚠️ Error Handling
 
-- `400 Bad Request`: Missing 'text' in request body
+- `400 Bad Request`: Missing 'text' in body and no file uploaded
 - `500 Internal Server Error`: API failure or unexpected issues
 - Proper logging is implemented in the server console
 
@@ -207,6 +199,3 @@ Engineering Standup – May 25
 - [Anthropic Claude API](https://www.anthropic.com/)
 - [Express.js](https://expressjs.com/)
 - [Multer](https://github.com/expressjs/multer)
-
----
-
